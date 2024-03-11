@@ -57,9 +57,32 @@ class UsersController extends Controller
            return back()->with('error','Duplicate Email address!');
         }
     }
-    public function updateImg()
+    public function updateImg(Request $request)
     {
+        $request->validate([
+            'profile_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+        if(file_exists(public_path('storage/images/'.$request->user()->profile_img))){
+            unlink(public_path('storage/images/'.$request->user()->profile_img));
+        }
+        if($request->hasFile('profile_img')){
+            $fileName = time(). '-' . 'profile-img' . '.' . $request->profile_img->extension();
+            $request->profile_img->move('storage/images/', $fileName);
 
+           try {
+                $user =  User::find($request->id);
+                $user->profile_img = $fileName;
+                $user->save();
+           return back()->with('update', 'Successfully updated!');
+           } catch (\Exception $e) {
+            return back()->with('error', 'Something wrong!');
+           }
+
+        }else{
+            return back()->with('error', 'Something wrong!');
+        }
     }
 
 }
+
+

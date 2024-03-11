@@ -16,9 +16,16 @@
     <h1 class="text-blue-500 text-xl font-bold mb-3">Edit your profile image</h1>
     <hr class="mb-4">
     <input type="hidden" name="id" value="{{ auth()->user()->id }}">
-    <img class=" w-full"
+    @if (auth()->user()->profile_img)
+        <img class=" w-full h-[200px] object-contain"
+        src="{{asset('storage/images/'.auth()->user()->profile_img)}}"
+    alt="">
+    @else
+        <img class=" w-full h-[200px] object-contain"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeARSMhzqAXKm9bVQ9uVviBTQOY6oAB99YrYMChPxDnw&s"
         alt="">
+    @endif
+
     <div class="mb-4 mt-4">
 
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload New Profile

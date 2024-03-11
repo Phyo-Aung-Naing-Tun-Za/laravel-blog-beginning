@@ -42,9 +42,16 @@
                                     id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                     <span class="absolute -inset-1.5"></span>
                                     <span class="sr-only">Open user menu</span>
-                                    <img class="h-8 w-8 rounded-full"
-                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+
+                                    @if(auth()->user()->profile_img)
+                                        <img class="h-8 w-8 rounded-full"
+                                        src="{{asset('storage/images/'.auth()->user()->profile_img)}}"
                                         alt="">
+                                    @else
+                                        <img class="h-8 w-8 rounded-full"
+                                        src="https://previews.123rf.com/images/yupiramos/yupiramos1607/yupiramos160710209/60039275-young-male-cartoon-profile-vector-illustration-graphic-design.jpg"
+                                        alt="">
+                                    @endif
                                 </button>
                             </div>
                         </div>

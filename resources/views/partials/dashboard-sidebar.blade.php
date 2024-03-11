@@ -1,6 +1,10 @@
 <nav class="bg-gray-700 w-[400px] pt-[60px] h-screen flex flex-col gap-5 border-r border-slate-100">
     <div class="user mt-[50px] flex items-center justify-center flex-col gap-4 border-b border-emerald-slate-50 py-5">
-        <img class="w-24 rounded-full shadow-xl" src="https://previews.123rf.com/images/yupiramos/yupiramos1607/yupiramos160710209/60039275-young-male-cartoon-profile-vector-illustration-graphic-design.jpg">
+        @if (auth()->user()->profile_img)
+            <img class="w-24 rounded-full shadow-xl" src="{{asset('storage/images/'.auth()->user()->profile_img)}}">
+        @else
+            <img class="w-24 rounded-full shadow-xl" src="https://previews.123rf.com/images/yupiramos/yupiramos1607/yupiramos160710209/60039275-young-male-cartoon-profile-vector-illustration-graphic-design.jpg">
+        @endif
         <div class="flex flex-col items-center">
             <span class="font-semibold text-lg text-indigo-500">{{auth()->user()->name}}</span>
             <span class="text-slate-400 text-sm">{{auth()->user()->email}}</span>
