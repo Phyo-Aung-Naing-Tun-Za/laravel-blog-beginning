@@ -1,5 +1,7 @@
-<form enctype="multipart/form-data" action="{{ route('users.update-img') }}" method="POST"
+<form enctype="multipart/form-data" action="{{route('user.profileImg')}}" method="POST"
     class="max-w-sm mx-auto bg-white px-4 py-5 mt-[100px] rounded-md  shodow">
+    @csrf
+
     @if (Session::has('update'))
         <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
             role="alert">
@@ -12,7 +14,6 @@
             {{ Session::get('error') }}
         </div>
     @endif
-    @csrf
     <h1 class="text-blue-500 text-xl font-bold mb-3">Edit your profile image</h1>
     <hr class="mb-4">
     <input type="hidden" name="id" value="{{ auth()->user()->id }}">

@@ -54,7 +54,7 @@
                     <th scope="row"
                         class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
                         <img class="w-10 h-10 rounded-full"
-                            src="<?= $user->profile_img ? $user->profile_img : 'https://st.depositphotos.com/2274151/4841/i/450/depositphotos_48410095-stock-photo-sample-blue-square-grungy-stamp.jpg' ?>"
+                            src="<?= $user->profile_img ? asset('storage/images/'.$user->profile_img) : 'https://st.depositphotos.com/2274151/4841/i/450/depositphotos_48410095-stock-photo-sample-blue-square-grungy-stamp.jpg' ?>"
                             alt="Jese image">
                         <div class="ps-3">
                             <div class="text-base font-semibold">{{ $user->name }}</div>

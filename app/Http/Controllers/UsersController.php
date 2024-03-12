@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 
 class UsersController extends Controller
@@ -81,6 +82,24 @@ class UsersController extends Controller
         }else{
             return back()->with('error', 'Something wrong!');
         }
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required|min:3',
+            'update_password' => 'required|min:3',
+        ]);
+        if(Hash::check($request->current_password, auth()->user()->password)){
+            $request->user()->fill([
+                'password' => Hash::make($request->update_password)
+            ])->save();
+            return back()->with('update', 'Successfully updated!');
+        }else{
+            return back()->with('error', 'Current password is wrong!');
+        }
+
+
     }
 
 }

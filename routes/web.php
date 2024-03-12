@@ -50,4 +50,5 @@ Route::post('/user/{id}/unsuspend',[UsersController::class, 'unsuspend'])->name(
 Route::post('/user/show',[UsersController::class, 'show'])->name('user.show');
 Route::get('/user/search',[UsersController::class, 'search'])->name('user.search');
 Route::post('/user/update', [UsersController::class, 'update'])->name('users.update');
-Route::post('/users/update', [UsersController::class, 'updateImg'])->name('users.update-img');
+Route::post('/user/update/profileImg', [UsersController::class, 'updateImg'])->name('user.profileImg');
+Route::post('/user/update/password', [UsersController::class, 'changePassword'])->name('users.changePassword');

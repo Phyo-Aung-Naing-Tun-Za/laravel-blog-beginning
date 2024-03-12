@@ -30,6 +30,10 @@
                     @elseif(request()->query('page_type') === 'profile-img')
                         @include('partials.dashboard-edit-profile-img')
 
+                    @elseif(request()->query('page_type') === 'change-password')
+
+                        @include('partials.dashboard-change-password-form')
+
                     @else
                     <div class=" p-3 flex items-center justify-center  w-full">
                         @include('partials.dashboard-manage-users')

@@ -12,23 +12,23 @@
     </div>
     <ul  class=" px-3 ">
         <li >
-            <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'user-posts') border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3   font-semibold tracking-wide " href="{{ route('dashboard', ['page_type' => 'user-posts']) }}">Your Posts</a>
+            <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'user-posts') border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3  text-sm  tracking-wide " href="{{ route('dashboard', ['page_type' => 'user-posts']) }}">Your Posts</a>
         </li>
         <li >
-            <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'create-post') border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3   font-semibold tracking-wide " href="{{ route('dashboard', ['page_type' => 'create-post']) }}">Create Posts</a>
+            <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'create-post') border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3  text-sm  tracking-wide " href="{{ route('dashboard', ['page_type' => 'create-post']) }}">Create Posts</a>
         </li>
         <li >
-            <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'edit-info') border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3   font-semibold tracking-wide " href="{{ route('dashboard', ['page_type' => 'edit-info']) }}">Edit Info</a>
+            <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'edit-info') border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3  text-sm  tracking-wide " href="{{ route('dashboard', ['page_type' => 'edit-info']) }}">Edit Info</a>
         </li>
         <li >
-            <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'profile-img') border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3   font-semibold tracking-wide " href="{{ route('dashboard', ['page_type' => 'profile-img']) }}">Change Profile Image</a>
+            <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'profile-img') border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3  text-sm  tracking-wide " href="{{ route('dashboard', ['page_type' => 'profile-img']) }}">Change Profile Image</a>
         </li>
         <li >
-            <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'create-post') border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3   font-semibold tracking-wide " href="{{ route('dashboard', ['page_type' => 'create-post']) }}">Change Password</a>
+            <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'change-password') border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3  text-sm  tracking-wide " href="{{ route('dashboard', ['page_type' => 'change-password']) }}">Change Password</a>
         </li>
         @if (auth()->user()->role_id === 33)
             <li >
-                <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'manage' || isset($_GET['page']) || isset($_GET['name']) ) border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3   font-semibold tracking-wide " href="{{ route('dashboard', ['page_type' => 'manage']) }}">Manage</a>
+                <a class=" mb-3 block border w-full py-2 rounded @if(request()->query('page_type') === 'manage' || isset($_GET['page']) || isset($_GET['name']) ) border-indigo-500 text-indigo-500  bg-gray-800 @else  border-gray-300 text-gray-300 @endif  px-3  text-sm  tracking-wide " href="{{ route('dashboard', ['page_type' => 'manage']) }}">Manage</a>
             </li>
         @endif
 
