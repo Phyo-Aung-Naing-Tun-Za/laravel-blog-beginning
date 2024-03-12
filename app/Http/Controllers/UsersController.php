@@ -63,7 +63,7 @@ class UsersController extends Controller
         $request->validate([
             'profile_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-        if(file_exists(public_path('storage/images/'.$request->user()->profile_img))){
+        if(file_exists(public_path('storage/images/'.$request->user()->profile_img)) && $request->user()->profile_img){
             unlink(public_path('storage/images/'.$request->user()->profile_img));
         }
         if($request->hasFile('profile_img')){

@@ -16,7 +16,7 @@
                     </p>
                 </div>
                 <div class="py-3 ">
-                    <ul class="flex gap-4">
+                    <ul class="flex ">
                             <li>
                                 <form class=" <?= $post->onlyLike() ? 'block' : 'hidden' ?>" id="unlike-form" action="{{route('likes.destory',$post)}}" method="post">
                                     @csrf
@@ -37,7 +37,7 @@
                                     </button>
                                 </form>
                             </li>
-                        <li  class=" text-gray-500"><span class=" me-1 font-bold"><span id="like-count">
+                        <li  class="ms-[20px] text-gray-500"><span class=" me-1 font-bold"><span id="like-count">
                             {{$post->likes()->count()}}</span></span>{{ Str::plural('Like', !$post->likes()->count())}}</li>
                         @if (auth()->user()->id === $post->user_id)
                         <li class="  ms-[170px]">
@@ -49,7 +49,7 @@
                                 </button>
                             </form>
                         </li>
-                        <li class="  ">
+                        <li class=" ms-[20px] ">
                             <a href="{{route('posts.show',['id' => $post->id])}}" class="text-white bg-indigo-500 rounded block px-2  ">
                                 <i class="fa-regular fa-pen-to-square"></i>
                             </a>
